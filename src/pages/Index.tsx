@@ -384,33 +384,58 @@ const Index = () => {
                       </CardContent>
                     </Card>
                   ) : (
-                    <Card 
-                      key={itemIdx} 
-                      className="overflow-hidden hover:shadow-xl transition-shadow animate-fade-in"
-                      style={{ animationDelay: `${itemIdx * 0.1}s` }}
-                    >
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full h-48 object-cover"
-                      />
-                      <CardHeader>
-                        <CardTitle className="font-heading text-lg">{item.name}</CardTitle>
-                        <CardDescription className="min-h-12">{item.description}</CardDescription>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="flex items-center justify-between">
-                          <span className="text-2xl font-bold text-primary">{item.price}</span>
-                          <Button 
-                            size="sm" 
-                            className="bg-accent hover:bg-accent/90"
-                            onClick={() => addToCart(item.name, item.price, item.image)}
-                          >
-                            <Icon name="Plus" size={16} />
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
+                    section.category === 'Авторские чаи' ? (
+                      <Card 
+                        key={itemIdx} 
+                        className="hover:shadow-xl transition-shadow animate-fade-in p-6"
+                        style={{ animationDelay: `${itemIdx * 0.1}s` }}
+                      >
+                        <CardHeader className="p-0 pb-4">
+                          <CardTitle className="font-heading text-lg">{item.name}</CardTitle>
+                          <CardDescription>{item.description}</CardDescription>
+                        </CardHeader>
+                        <CardContent className="p-0">
+                          <div className="flex items-center justify-between">
+                            <span className="text-2xl font-bold text-primary">{item.price}</span>
+                            <Button 
+                              size="sm" 
+                              className="bg-accent hover:bg-accent/90"
+                              onClick={() => addToCart(item.name, item.price, item.image)}
+                            >
+                              <Icon name="Plus" size={16} />
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ) : (
+                      <Card 
+                        key={itemIdx} 
+                        className="overflow-hidden hover:shadow-xl transition-shadow animate-fade-in"
+                        style={{ animationDelay: `${itemIdx * 0.1}s` }}
+                      >
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-48 object-cover"
+                        />
+                        <CardHeader>
+                          <CardTitle className="font-heading text-lg">{item.name}</CardTitle>
+                          <CardDescription className="min-h-12">{item.description}</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="flex items-center justify-between">
+                            <span className="text-2xl font-bold text-primary">{item.price}</span>
+                            <Button 
+                              size="sm" 
+                              className="bg-accent hover:bg-accent/90"
+                              onClick={() => addToCart(item.name, item.price, item.image)}
+                            >
+                              <Icon name="Plus" size={16} />
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    )
                   )
                 ))}
               </div>
