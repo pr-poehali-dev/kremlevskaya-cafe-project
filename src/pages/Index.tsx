@@ -144,25 +144,25 @@ const Index = () => {
           name: 'Зеленый Чай с Жасмином', 
           description: 'Классический зеленый чай с нежными нотами жасмина', 
           price: '200 ₽', 
-          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ce124c-9e9c-41a3-adda-f0acfb66ec2b.jpg' 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/2868c561-fa3a-438d-b7e8-509e9ce3b923.jpg' 
         },
         { 
           name: 'Зеленый чай Лайм-Мята', 
           description: 'Освежающий зеленый чай с лаймом и мятой', 
           price: '220 ₽', 
-          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/272c0ede-a0c4-4dd9-8986-b8df647238bf.jpg' 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/1e2c4206-4df0-4de7-aa79-9a3e34c67a48.jpg' 
         },
         { 
           name: 'Чай «Пряный Апельсин»', 
           description: 'Черный чай с апельсином и пряностями', 
           price: '230 ₽', 
-          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/25e97e99-511f-49c3-a80e-ac3518e41e8f.jpg' 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/e797122e-5527-41fb-8c49-eea2675a35b6.jpg' 
         },
         { 
           name: 'Чай "Манго-Маракуйя"', 
           description: 'Экзотический фруктовый чай с манго и маракуйей', 
           price: '240 ₽', 
-          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/4624befe-a7a8-4d16-9b7f-4d8452dd6b13.jpg' 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/7beb9f49-8443-482d-a5fc-f9b64380adc6.jpg' 
         }
       ]
     }
