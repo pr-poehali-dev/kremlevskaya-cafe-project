@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -7,12 +7,25 @@ import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
     setActiveSection(id);
+    setIsMobileMenuOpen(false);
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
 
   const menuItems = [
     {
@@ -58,9 +71,42 @@ const Index = () => {
                 </button>
               ))}
             </div>
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-2 text-primary"
+              aria-label="Toggle menu"
+            >
+              <Icon name={isMobileMenuOpen ? 'X' : 'Menu'} size={28} />
+            </button>
           </div>
         </div>
       </nav>
+
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-40 md:hidden">
+          <div
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+          <div className="absolute top-20 right-0 left-0 bg-white shadow-lg animate-slide-in">
+            <div className="flex flex-col p-6 space-y-4">
+              {['Главная', 'О нас', 'Меню', 'Доставка', 'Контакты'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
+                  className={`text-lg font-medium py-3 text-left transition-colors ${
+                    activeSection === item.toLowerCase().replace(' ', '-')
+                      ? 'text-primary font-bold'
+                      : 'text-muted-foreground hover:text-primary'
+                  }`}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       <section
         id="главная"
