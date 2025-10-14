@@ -293,7 +293,7 @@ const Index = () => {
             Добро пожаловать в Kremlevskaya Waffles — место, где традиции встречаются с современностью
           </p>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-2 hover:shadow-lg transition-shadow">
+            <Card className="border-2 hover:shadow-lg transition-shadow animate-fade-in" style={{ animationDelay: '0s' }}>
               <CardHeader>
                 <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4">
                   <Icon name="Cookie" className="text-primary" size={24} />
@@ -304,7 +304,7 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
             </Card>
-            <Card className="border-2 hover:shadow-lg transition-shadow">
+            <Card className="border-2 hover:shadow-lg transition-shadow animate-fade-in" style={{ animationDelay: '0.15s' }}>
               <CardHeader>
                 <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4">
                   <Icon name="Coffee" className="text-primary" size={24} />
@@ -315,7 +315,7 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
             </Card>
-            <Card className="border-2 hover:shadow-lg transition-shadow">
+            <Card className="border-2 hover:shadow-lg transition-shadow animate-fade-in" style={{ animationDelay: '0.3s' }}>
               <CardHeader>
                 <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mb-4">
                   <Icon name="Heart" className="text-primary" size={24} />
@@ -349,7 +349,8 @@ const Index = () => {
                   section.category === 'Комбо наборы' ? (
                     <Card 
                       key={itemIdx} 
-                      className="overflow-hidden hover:shadow-2xl transition-all w-full md:w-[600px] border-4 border-accent relative bg-gradient-to-br from-accent/5 to-primary/5"
+                      className="overflow-hidden hover:shadow-2xl transition-all w-full md:w-[600px] border-4 border-accent relative bg-gradient-to-br from-accent/5 to-primary/5 animate-fade-in"
+                      style={{ animationDelay: `${itemIdx * 0.1}s` }}
                     >
                       <div className="absolute top-4 right-4 z-10">
                         <div className="bg-accent text-white px-4 py-2 rounded-full font-heading font-bold text-sm shadow-lg animate-pulse">
@@ -383,7 +384,11 @@ const Index = () => {
                       </CardContent>
                     </Card>
                   ) : (
-                    <Card key={itemIdx} className="overflow-hidden hover:shadow-xl transition-shadow">
+                    <Card 
+                      key={itemIdx} 
+                      className="overflow-hidden hover:shadow-xl transition-shadow animate-fade-in"
+                      style={{ animationDelay: `${itemIdx * 0.1}s` }}
+                    >
                       <img
                         src={item.image}
                         alt={item.name}
