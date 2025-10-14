@@ -3,11 +3,21 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
+
+interface CartItem {
+  name: string;
+  price: number;
+  quantity: number;
+  image: string;
+}
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [cart, setCart] = useState<CartItem[]>([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
     setActiveSection(id);
@@ -16,8 +26,44 @@ const Index = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const addToCart = (name: string, priceStr: string, image: string) => {
+    const price = parseInt(priceStr.replace(/[^0-9]/g, ''));
+    const existingItem = cart.find(item => item.name === name);
+    
+    if (existingItem) {
+      setCart(cart.map(item => 
+        item.name === name 
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      ));
+    } else {
+      setCart([...cart, { name, price, quantity: 1, image }]);
+    }
+  };
+
+  const removeFromCart = (name: string) => {
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem && existingItem.quantity > 1) {
+      setCart(cart.map(item => 
+        item.name === name 
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      ));
+    } else {
+      setCart(cart.filter(item => item.name !== name));
+    }
+  };
+
+  const getTotalPrice = () => {
+    return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  };
+
+  const getTotalItems = () => {
+    return cart.reduce((sum, item) => sum + item.quantity, 0);
+  };
+
   useEffect(() => {
-    if (isMobileMenuOpen) {
+    if (isMobileMenuOpen || isCartOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -25,7 +71,7 @@ const Index = () => {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, isCartOpen]);
 
   const menuItems = [
     {
@@ -71,13 +117,27 @@ const Index = () => {
                 </button>
               ))}
             </div>
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-primary"
-              aria-label="Toggle menu"
-            >
-              <Icon name={isMobileMenuOpen ? 'X' : 'Menu'} size={28} />
-            </button>
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => setIsCartOpen(true)}
+                className="relative p-2 text-primary hover:bg-secondary/20 rounded-lg transition-colors"
+                aria-label="Open cart"
+              >
+                <Icon name="ShoppingCart" size={24} />
+                {getTotalItems() > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-accent text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                    {getTotalItems()}
+                  </span>
+                )}
+              </button>
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="md:hidden p-2 text-primary"
+                aria-label="Toggle menu"
+              >
+                <Icon name={isMobileMenuOpen ? 'X' : 'Menu'} size={28} />
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -225,8 +285,12 @@ const Index = () => {
                     <CardContent>
                       <div className="flex items-center justify-between">
                         <span className="text-2xl font-bold text-primary">{item.price}</span>
-                        <Button size="sm" className="bg-accent hover:bg-accent/90">
-                          <Icon name="ShoppingCart" size={16} />
+                        <Button 
+                          size="sm" 
+                          className="bg-accent hover:bg-accent/90"
+                          onClick={() => addToCart(item.name, item.price, item.image)}
+                        >
+                          <Icon name="Plus" size={16} />
                         </Button>
                       </div>
                     </CardContent>
@@ -356,6 +420,86 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {isCartOpen && (
+        <div className="fixed inset-0 z-50">
+          <div
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            onClick={() => setIsCartOpen(false)}
+          />
+          <div className="absolute top-0 right-0 bottom-0 w-full md:w-96 bg-white shadow-2xl animate-slide-in flex flex-col">
+            <div className="p-6 border-b flex items-center justify-between">
+              <h2 className="text-2xl font-heading font-bold text-primary">Корзина</h2>
+              <button
+                onClick={() => setIsCartOpen(false)}
+                className="p-2 hover:bg-secondary/20 rounded-lg transition-colors"
+              >
+                <Icon name="X" size={24} />
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto p-6">
+              {cart.length === 0 ? (
+                <div className="flex flex-col items-center justify-center h-full text-center">
+                  <Icon name="ShoppingCart" size={64} className="text-muted-foreground mb-4" />
+                  <p className="text-lg text-muted-foreground">Корзина пуста</p>
+                  <p className="text-sm text-muted-foreground mt-2">Добавьте товары из меню</p>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {cart.map((item) => (
+                    <Card key={item.name} className="overflow-hidden">
+                      <div className="flex gap-4 p-4">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-20 h-20 object-cover rounded-lg"
+                        />
+                        <div className="flex-1">
+                          <h3 className="font-heading font-bold text-sm mb-2">{item.name}</h3>
+                          <p className="text-primary font-bold">{item.price} ₽</p>
+                          <div className="flex items-center gap-3 mt-2">
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => removeFromCart(item.name)}
+                              className="h-8 w-8 p-0"
+                            >
+                              <Icon name="Minus" size={14} />
+                            </Button>
+                            <span className="font-bold text-lg">{item.quantity}</span>
+                            <Button
+                              size="sm"
+                              onClick={() => addToCart(item.name, `${item.price} ₽`, item.image)}
+                              className="h-8 w-8 p-0 bg-accent hover:bg-accent/90"
+                            >
+                              <Icon name="Plus" size={14} />
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {cart.length > 0 && (
+              <div className="p-6 border-t bg-secondary/10">
+                <div className="flex justify-between items-center mb-4">
+                  <span className="text-lg font-heading font-bold">Итого:</span>
+                  <span className="text-2xl font-heading font-bold text-primary">
+                    {getTotalPrice()} ₽
+                  </span>
+                </div>
+                <Button className="w-full bg-accent hover:bg-accent/90 text-white font-semibold py-6 text-lg">
+                  Оформить заказ
+                </Button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
