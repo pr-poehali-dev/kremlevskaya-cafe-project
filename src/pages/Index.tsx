@@ -267,11 +267,11 @@ const Index = () => {
                 </Button>
               </div>
             </div>
-            <div className="animate-fade-in">
+            <div className="animate-fade-in flex justify-center">
               <img
-                src="https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/6030cd24-010a-45d3-8ed9-f95a1eae2d9c.jpg"
+                src="https://cdn.poehali.dev/files/5e258306-69c8-486e-b785-6e939a6ac316.png"
                 alt="Kremlevskaya Waffles"
-                className="rounded-2xl shadow-2xl"
+                className="w-96 h-96 object-contain drop-shadow-2xl"
               />
             </div>
           </div>
