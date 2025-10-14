@@ -75,21 +75,78 @@ const Index = () => {
 
   const menuItems = [
     {
-      category: 'Вафли',
+      category: 'Сытные вафли',
       items: [
-        { name: 'Классическая венская', description: 'Хрустящая вафля с сахарной пудрой', price: '290 ₽', image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' },
-        { name: 'Шоколадная', description: 'С шоколадным соусом и свежими ягодами', price: '350 ₽', image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' },
-        { name: 'Медовая с орехами', description: 'С натуральным мёдом и грецкими орехами', price: '390 ₽', image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' },
-        { name: 'Фруктовая', description: 'С карамелизированными фруктами и сливками', price: '420 ₽', image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' }
+        { 
+          name: '«Цезарь, но не Юлий»', 
+          description: 'Вафли с начинкой салата цезарь', 
+          price: '420 ₽', 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' 
+        },
+        { 
+          name: '«Перекус студента чек»', 
+          description: 'Начинка ветчина и сыр', 
+          price: '350 ₽', 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' 
+        },
+        { 
+          name: '«Степуха пришла»', 
+          description: 'Бельгийские вафли, нежный крем-чиз, тонкие ломтики слабосоленого лосося, тонкие колечки красного лука', 
+          price: '520 ₽', 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' 
+        }
       ]
     },
     {
-      category: 'Чай',
+      category: 'Сладкие вафли',
       items: [
-        { name: 'Черный чай', description: 'Классический Earl Grey', price: '150 ₽', image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/2149f723-d2b1-4e6c-8a57-f4964bf177fd.jpg' },
-        { name: 'Зеленый чай', description: 'Сенча с жасмином', price: '180 ₽', image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/2149f723-d2b1-4e6c-8a57-f4964bf177fd.jpg' },
-        { name: 'Травяной чай', description: 'Натуральный сбор с мятой и мелиссой', price: '170 ₽', image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/2149f723-d2b1-4e6c-8a57-f4964bf177fd.jpg' },
-        { name: 'Фруктовый чай', description: 'Ягодный микс с гибискусом', price: '190 ₽', image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/2149f723-d2b1-4e6c-8a57-f4964bf177fd.jpg' }
+        { 
+          name: '«Сладкая жизнь»', 
+          description: 'Бельгийские вафли, микс свежих ягод (клубника, голубика, малина), взбитые сливки, сахарная пудра, веточка свежей мяты', 
+          price: '480 ₽', 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' 
+        },
+        { 
+          name: '«Банановый перерыв»', 
+          description: 'Бельгийские вафли, шоколадная паста Nutella, ломтики свежего банана, хрустящая ореховая крошка, политая молочным шоколадным сиропом', 
+          price: '450 ₽', 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' 
+        },
+        { 
+          name: '«Персиковая разрядка»', 
+          description: 'Бельгийские вафли, нежный творожный крем, консервированные или свежие персики, мед, миндальные лепестки', 
+          price: '440 ₽', 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' 
+        }
+      ]
+    },
+    {
+      category: 'Авторские чаи',
+      items: [
+        { 
+          name: 'Зеленый Чай с Жасмином', 
+          description: 'Классический зеленый чай с нежными нотами жасмина', 
+          price: '200 ₽', 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/2149f723-d2b1-4e6c-8a57-f4964bf177fd.jpg' 
+        },
+        { 
+          name: 'Зеленый чай Лайм-Мята', 
+          description: 'Освежающий зеленый чай с лаймом и мятой', 
+          price: '220 ₽', 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/2149f723-d2b1-4e6c-8a57-f4964bf177fd.jpg' 
+        },
+        { 
+          name: 'Чай «Пряный Апельсин»', 
+          description: 'Черный чай с апельсином и пряностями', 
+          price: '230 ₽', 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/2149f723-d2b1-4e6c-8a57-f4964bf177fd.jpg' 
+        },
+        { 
+          name: 'Чай "Манго-Маракуйя"', 
+          description: 'Экзотический фруктовый чай с манго и маракуйей', 
+          price: '240 ₽', 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/2149f723-d2b1-4e6c-8a57-f4964bf177fd.jpg' 
+        }
       ]
     }
   ];
