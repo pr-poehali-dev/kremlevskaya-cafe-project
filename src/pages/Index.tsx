@@ -128,6 +128,12 @@ const Index = () => {
           description: '«Перекус студента чек» + авторский чай на выбор', 
           price: '500 ₽', 
           image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' 
+        },
+        { 
+          name: '«Сладкий кайф»', 
+          description: 'Сладкая вафля на выбор + чай "Манго-Маракуйя"', 
+          price: '620 ₽', 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' 
         }
       ]
     },
