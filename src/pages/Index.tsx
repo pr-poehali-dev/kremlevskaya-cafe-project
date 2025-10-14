@@ -338,31 +338,69 @@ const Index = () => {
               <h3 className="text-3xl font-heading font-bold mb-8 text-primary">
                 {section.category}
               </h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className={section.category === 'Комбо наборы' ? 'flex justify-center' : 'grid md:grid-cols-2 lg:grid-cols-4 gap-6'}>
                 {section.items.map((item, itemIdx) => (
-                  <Card key={itemIdx} className="overflow-hidden hover:shadow-xl transition-shadow">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-full h-48 object-cover"
-                    />
-                    <CardHeader>
-                      <CardTitle className="font-heading text-lg">{item.name}</CardTitle>
-                      <CardDescription className="min-h-12">{item.description}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold text-primary">{item.price}</span>
-                        <Button 
-                          size="sm" 
-                          className="bg-accent hover:bg-accent/90"
-                          onClick={() => addToCart(item.name, item.price, item.image)}
-                        >
-                          <Icon name="Plus" size={16} />
-                        </Button>
+                  section.category === 'Комбо наборы' ? (
+                    <Card 
+                      key={itemIdx} 
+                      className="overflow-hidden hover:shadow-2xl transition-all w-full md:w-[600px] border-4 border-accent relative bg-gradient-to-br from-accent/5 to-primary/5"
+                    >
+                      <div className="absolute top-4 right-4 z-10">
+                        <div className="bg-accent text-white px-4 py-2 rounded-full font-heading font-bold text-sm shadow-lg animate-pulse">
+                          🔥 Выгодно!
+                        </div>
                       </div>
-                    </CardContent>
-                  </Card>
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-64 object-cover"
+                      />
+                      <CardHeader className="pb-4">
+                        <CardTitle className="font-heading text-2xl text-primary">{item.name}</CardTitle>
+                        <CardDescription className="text-base">{item.description}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <div className="text-sm text-muted-foreground line-through">800 ₽</div>
+                            <span className="text-3xl font-bold text-accent">{item.price}</span>
+                          </div>
+                          <Button 
+                            size="lg" 
+                            className="bg-accent hover:bg-accent/90 text-white font-semibold px-8"
+                            onClick={() => addToCart(item.name, item.price, item.image)}
+                          >
+                            <Icon name="Plus" size={20} className="mr-2" />
+                            Добавить
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ) : (
+                    <Card key={itemIdx} className="overflow-hidden hover:shadow-xl transition-shadow">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-48 object-cover"
+                      />
+                      <CardHeader>
+                        <CardTitle className="font-heading text-lg">{item.name}</CardTitle>
+                        <CardDescription className="min-h-12">{item.description}</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex items-center justify-between">
+                          <span className="text-2xl font-bold text-primary">{item.price}</span>
+                          <Button 
+                            size="sm" 
+                            className="bg-accent hover:bg-accent/90"
+                            onClick={() => addToCart(item.name, item.price, item.image)}
+                          >
+                            <Icon name="Plus" size={16} />
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )
                 ))}
               </div>
             </div>
