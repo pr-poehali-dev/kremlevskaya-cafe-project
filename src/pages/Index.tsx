@@ -81,19 +81,19 @@ const Index = () => {
           name: '«Цезарь, но не Юлий»', 
           description: 'Вафли с начинкой салата цезарь', 
           price: '420 ₽', 
-          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/661a0d58-9bd9-4ab2-83d2-9a919f1f46c1.jpg' 
         },
         { 
           name: '«Перекус студента чек»', 
           description: 'Начинка ветчина и сыр', 
           price: '350 ₽', 
-          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/3be1a342-c7ad-4aab-864d-b06b01ce3d0b.jpg' 
         },
         { 
           name: '«Степуха пришла»', 
           description: 'Бельгийские вафли, нежный крем-чиз, тонкие ломтики слабосоленого лосося, тонкие колечки красного лука', 
           price: '520 ₽', 
-          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/4bb18d97-8ab7-49a6-9fe1-0f319ce7983d.jpg' 
         }
       ]
     },
@@ -104,19 +104,19 @@ const Index = () => {
           name: '«Сладкая жизнь»', 
           description: 'Бельгийские вафли, микс свежих ягод (клубника, голубика, малина), взбитые сливки, сахарная пудра, веточка свежей мяты', 
           price: '480 ₽', 
-          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/2f98322c-a03e-49ae-9eda-ae4df0a0caac.jpg' 
         },
         { 
           name: '«Банановый перерыв»', 
           description: 'Бельгийские вафли, шоколадная паста Nutella, ломтики свежего банана, хрустящая ореховая крошка, политая молочным шоколадным сиропом', 
           price: '450 ₽', 
-          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/99c0baa4-9f80-4c61-8860-e0c7d5b814e7.jpg' 
         },
         { 
           name: '«Персиковая разрядка»', 
           description: 'Бельгийские вафли, нежный творожный крем, консервированные или свежие персики, мед, миндальные лепестки', 
           price: '440 ₽', 
-          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/56718f77-4ee2-412d-a2e8-b48493095403.jpg' 
         }
       ]
     },
@@ -127,13 +127,13 @@ const Index = () => {
           name: '«По блату»', 
           description: '«Перекус студента чек» + авторский чай на выбор', 
           price: '500 ₽', 
-          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/3be1a342-c7ad-4aab-864d-b06b01ce3d0b.jpg' 
         },
         { 
           name: '«Сладкий кайф»', 
           description: 'Сладкая вафля на выбор + чай "Манго-Маракуйя"', 
           price: '620 ₽', 
-          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/89ae9595-3abb-4358-af7a-7baba6ebf271.jpg' 
+          image: 'https://cdn.poehali.dev/projects/2dac5eed-fb65-4ed8-baa9-fd25d93714ca/files/2f98322c-a03e-49ae-9eda-ae4df0a0caac.jpg' 
         }
       ]
     },
